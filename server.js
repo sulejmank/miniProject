@@ -34,8 +34,10 @@ const request = require('request');
 
         } else {
 
-          let weatherText = "Its " + weather.main.temp + "  degrees in " +   weather.name;
+          let weatherText = "Its " + ((weather.main.temp - 32)/ (1.8)) + "  degrees in " +   weather.name + " " +"pressure is: " + weather.main.pressure +
+                           " " +  "max temperature of the day is : " + " " + ((weather.main.temp_max - 32)/1.8) + " " + "and the minimum is " + " " +  ((weather.main.temp_min-32)/1.8);
           res.render('index',{weather:weatherText, error:null});
+         
 
         }
       }
